@@ -14,11 +14,13 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^3.3.2",
+    "concurrently": "^9.1.0",
+    "husky": "^8.0.0",
     "nx": "19.2.3",
-    "husky": "^8.0.0"
+    "prettier": "^3.3.2"
   },
   "scripts": {
+    "dev": "concurrently \"cd apps/api && yarn dev\" \"cd apps/web && yarn dev\"",
     "format": "prettier  \"{apps,libs,standalone}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
     "format:check": "yarn format --check",
     "format:write": "yarn format --write",
