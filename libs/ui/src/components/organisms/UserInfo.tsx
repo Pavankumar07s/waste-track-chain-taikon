@@ -1,13 +1,13 @@
-import { useAccount } from '@recycle-chain/util/src/hooks/ether';
-import { BaseComponent } from '@recycle-chain/util/src/types';
-import Image from 'next/image';
-import clsx from 'clsx';
+import { useAccount } from '@recycle-chain/util/src/hooks/ether'
+import { BaseComponent } from '@recycle-chain/util/src/types'
+import Image from 'next/image'
+import clsx from 'clsx'
 
 export const UserInfo = ({ className, children }: BaseComponent) => {
-  const { account, balance, isOwner } = useAccount();
+  const { account, balance, isOwner } = useAccount()
 
   return (
-    <div className={clsx("p-4 rounded-lg shadow-lg bg-white/80", className)}>
+    <div className={clsx('p-4 rounded-lg shadow-lg bg-white/80', className)}>
       <div className="flex items-center  gap-4">
         <Image
           src="/user-pattern.jpg"
@@ -36,5 +36,5 @@ export const UserInfo = ({ className, children }: BaseComponent) => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}

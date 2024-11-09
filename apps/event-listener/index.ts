@@ -12,9 +12,14 @@ const main = () => {
 
   // Listening to ProductCreated event
   try {
-    contract.on(contract.filters.ProductCreated(), (productId, name, manufacturer) => {
-      console.log(`🎉 Product Created: ID - ${productId}, Name - ${name}, Manufacturer - ${manufacturer}`);
-    })
+    contract.on(
+      contract.filters.ProductCreated(),
+      (productId, name, manufacturer) => {
+        console.log(
+          `🎉 Product Created: ID - ${productId}, Name - ${name}, Manufacturer - ${manufacturer}`,
+        )
+      },
+    )
     console.log('Event: ProductCreated Listening...')
   } catch (error) {
     console.error('Event: ProductCreated Listener setup failed.', error)
@@ -22,9 +27,14 @@ const main = () => {
 
   // Listening to ToxicItemCreated event
   try {
-    contract.on(contract.filters.ToxicItemCreated(), (productId, toxicName, toxicWeight) => {
-      console.log(`🎉 Toxic Item Created: Product ID - ${productId}, Toxic Name - ${toxicName}, Weight - ${toxicWeight}`);
-    })
+    contract.on(
+      contract.filters.ToxicItemCreated(),
+      (productId, toxicName, toxicWeight) => {
+        console.log(
+          `🎉 Toxic Item Created: Product ID - ${productId}, Toxic Name - ${toxicName}, Weight - ${toxicWeight}`,
+        )
+      },
+    )
     console.log('Event: ToxicItemCreated Listening...')
   } catch (error) {
     console.error('Event: ToxicItemCreated Listener setup failed.', error)
@@ -33,7 +43,9 @@ const main = () => {
   // Listening to ProductItemsAdded event
   try {
     contract.on(contract.filters.ProductItemsAdded(), (itemIds, productId) => {
-      console.log(`🎉 Product Items Added: Product ID - ${productId}, Item IDs - ${itemIds.join(', ')}`);
+      console.log(
+        `🎉 Product Items Added: Product ID - ${productId}, Item IDs - ${itemIds.join(', ')}`,
+      )
     })
     console.log('Event: ProductItemsAdded Listening...')
   } catch (error) {
@@ -42,19 +54,32 @@ const main = () => {
 
   // Listening to ProductItemsStatusChanged event
   try {
-    contract.on(contract.filters.ProductItemsStatusChanged(), (itemIds, status) => {
-      console.log(`🎉 Product Items Status Changed: Item IDs - ${itemIds.join(', ')}, New Status - ${status}`);
-    })
+    contract.on(
+      contract.filters.ProductItemsStatusChanged(),
+      (itemIds, status) => {
+        console.log(
+          `🎉 Product Items Status Changed: Item IDs - ${itemIds.join(', ')}, New Status - ${status}`,
+        )
+      },
+    )
     console.log('Event: ProductItemsStatusChanged Listening...')
   } catch (error) {
-    console.error('Event: ProductItemsStatusChanged Listener setup failed.', error)
+    console.error(
+      'Event: ProductItemsStatusChanged Listener setup failed.',
+      error,
+    )
   }
 
   // Listening to ManufacturerRegistered event
   try {
-    contract.on(contract.filters.ManufacturerRegistered(), (manufacturer, name, location, contactUs) => {
-      console.log(`🎉 Manufacturer Registered: ${manufacturer}, Name - ${name}, Location - ${location}, Contact - ${contactUs}`);
-    })
+    contract.on(
+      contract.filters.ManufacturerRegistered(),
+      (manufacturer, name, location, contactUs) => {
+        console.log(
+          `🎉 Manufacturer Registered: ${manufacturer}, Name - ${name}, Location - ${location}, Contact - ${contactUs}`,
+        )
+      },
+    )
     console.log('Event: ManufacturerRegistered Listening...')
   } catch (error) {
     console.error('Event: ManufacturerRegistered Listener setup failed.', error)

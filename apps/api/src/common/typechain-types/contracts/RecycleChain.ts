@@ -13,7 +13,7 @@ import type {
   ContractRunner,
   ContractMethod,
   Listener,
-} from "ethers";
+} from 'ethers'
 import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
@@ -21,116 +21,113 @@ import type {
   TypedLogDescription,
   TypedListener,
   TypedContractMethod,
-} from "../common";
+} from '../common'
 
 export interface RecycleChainInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | "addProduct"
-      | "addProductItems"
-      | "inventory"
-      | "manufacturers"
-      | "owner"
-      | "productCounter"
-      | "productItems"
-      | "products"
-      | "recycleProductItems"
-      | "registerManufacturer"
-      | "returnProductItems"
-      | "sellProductItems"
-  ): FunctionFragment;
+      | 'addProduct'
+      | 'addProductItems'
+      | 'inventory'
+      | 'manufacturers'
+      | 'owner'
+      | 'productCounter'
+      | 'productItems'
+      | 'products'
+      | 'recycleProductItems'
+      | 'registerManufacturer'
+      | 'returnProductItems'
+      | 'sellProductItems',
+  ): FunctionFragment
 
   getEvent(
     nameOrSignatureOrTopic:
-      | "ManufacturerRegistered"
-      | "ProductCreated"
-      | "ProductItemsAdded"
-      | "ProductItemsStatusChanged"
-      | "ToxicItemCreated"
-  ): EventFragment;
+      | 'ManufacturerRegistered'
+      | 'ProductCreated'
+      | 'ProductItemsAdded'
+      | 'ProductItemsStatusChanged'
+      | 'ToxicItemCreated',
+  ): EventFragment
 
   encodeFunctionData(
-    functionFragment: "addProduct",
-    values: [string, string[], BigNumberish[]]
-  ): string;
+    functionFragment: 'addProduct',
+    values: [string, string[], BigNumberish[]],
+  ): string
   encodeFunctionData(
-    functionFragment: "addProductItems",
-    values: [BigNumberish, BigNumberish]
-  ): string;
+    functionFragment: 'addProductItems',
+    values: [BigNumberish, BigNumberish],
+  ): string
   encodeFunctionData(
-    functionFragment: "inventory",
-    values: [AddressLike, BigNumberish]
-  ): string;
+    functionFragment: 'inventory',
+    values: [AddressLike, BigNumberish],
+  ): string
   encodeFunctionData(
-    functionFragment: "manufacturers",
-    values: [AddressLike]
-  ): string;
-  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+    functionFragment: 'manufacturers',
+    values: [AddressLike],
+  ): string
+  encodeFunctionData(functionFragment: 'owner', values?: undefined): string
   encodeFunctionData(
-    functionFragment: "productCounter",
-    values?: undefined
-  ): string;
+    functionFragment: 'productCounter',
+    values?: undefined,
+  ): string
+  encodeFunctionData(functionFragment: 'productItems', values: [string]): string
   encodeFunctionData(
-    functionFragment: "productItems",
-    values: [string]
-  ): string;
+    functionFragment: 'products',
+    values: [BigNumberish],
+  ): string
   encodeFunctionData(
-    functionFragment: "products",
-    values: [BigNumberish]
-  ): string;
+    functionFragment: 'recycleProductItems',
+    values: [string[]],
+  ): string
   encodeFunctionData(
-    functionFragment: "recycleProductItems",
-    values: [string[]]
-  ): string;
+    functionFragment: 'registerManufacturer',
+    values: [string, string, string],
+  ): string
   encodeFunctionData(
-    functionFragment: "registerManufacturer",
-    values: [string, string, string]
-  ): string;
+    functionFragment: 'returnProductItems',
+    values: [string[]],
+  ): string
   encodeFunctionData(
-    functionFragment: "returnProductItems",
-    values: [string[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "sellProductItems",
-    values: [string[]]
-  ): string;
+    functionFragment: 'sellProductItems',
+    values: [string[]],
+  ): string
 
-  decodeFunctionResult(functionFragment: "addProduct", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'addProduct', data: BytesLike): Result
   decodeFunctionResult(
-    functionFragment: "addProductItems",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "inventory", data: BytesLike): Result;
+    functionFragment: 'addProductItems',
+    data: BytesLike,
+  ): Result
+  decodeFunctionResult(functionFragment: 'inventory', data: BytesLike): Result
   decodeFunctionResult(
-    functionFragment: "manufacturers",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+    functionFragment: 'manufacturers',
+    data: BytesLike,
+  ): Result
+  decodeFunctionResult(functionFragment: 'owner', data: BytesLike): Result
   decodeFunctionResult(
-    functionFragment: "productCounter",
-    data: BytesLike
-  ): Result;
+    functionFragment: 'productCounter',
+    data: BytesLike,
+  ): Result
   decodeFunctionResult(
-    functionFragment: "productItems",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "products", data: BytesLike): Result;
+    functionFragment: 'productItems',
+    data: BytesLike,
+  ): Result
+  decodeFunctionResult(functionFragment: 'products', data: BytesLike): Result
   decodeFunctionResult(
-    functionFragment: "recycleProductItems",
-    data: BytesLike
-  ): Result;
+    functionFragment: 'recycleProductItems',
+    data: BytesLike,
+  ): Result
   decodeFunctionResult(
-    functionFragment: "registerManufacturer",
-    data: BytesLike
-  ): Result;
+    functionFragment: 'registerManufacturer',
+    data: BytesLike,
+  ): Result
   decodeFunctionResult(
-    functionFragment: "returnProductItems",
-    data: BytesLike
-  ): Result;
+    functionFragment: 'returnProductItems',
+    data: BytesLike,
+  ): Result
   decodeFunctionResult(
-    functionFragment: "sellProductItems",
-    data: BytesLike
-  ): Result;
+    functionFragment: 'sellProductItems',
+    data: BytesLike,
+  ): Result
 }
 
 export namespace ManufacturerRegisteredEvent {
@@ -138,396 +135,390 @@ export namespace ManufacturerRegisteredEvent {
     manufacturer: AddressLike,
     name: string,
     location: string,
-    contact: string
-  ];
+    contact: string,
+  ]
   export type OutputTuple = [
     manufacturer: string,
     name: string,
     location: string,
-    contact: string
-  ];
+    contact: string,
+  ]
   export interface OutputObject {
-    manufacturer: string;
-    name: string;
-    location: string;
-    contact: string;
+    manufacturer: string
+    name: string
+    location: string
+    contact: string
   }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>
+  export type Filter = TypedDeferredTopicFilter<Event>
+  export type Log = TypedEventLog<Event>
+  export type LogDescription = TypedLogDescription<Event>
 }
 
 export namespace ProductCreatedEvent {
   export type InputTuple = [
     productId: BigNumberish,
     name: string,
-    manufacturer: AddressLike
-  ];
+    manufacturer: AddressLike,
+  ]
   export type OutputTuple = [
     productId: bigint,
     name: string,
-    manufacturer: string
-  ];
+    manufacturer: string,
+  ]
   export interface OutputObject {
-    productId: bigint;
-    name: string;
-    manufacturer: string;
+    productId: bigint
+    name: string
+    manufacturer: string
   }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>
+  export type Filter = TypedDeferredTopicFilter<Event>
+  export type Log = TypedEventLog<Event>
+  export type LogDescription = TypedLogDescription<Event>
 }
 
 export namespace ProductItemsAddedEvent {
-  export type InputTuple = [itemIds: string[], productId: BigNumberish];
-  export type OutputTuple = [itemIds: string[], productId: bigint];
+  export type InputTuple = [itemIds: string[], productId: BigNumberish]
+  export type OutputTuple = [itemIds: string[], productId: bigint]
   export interface OutputObject {
-    itemIds: string[];
-    productId: bigint;
+    itemIds: string[]
+    productId: bigint
   }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>
+  export type Filter = TypedDeferredTopicFilter<Event>
+  export type Log = TypedEventLog<Event>
+  export type LogDescription = TypedLogDescription<Event>
 }
 
 export namespace ProductItemsStatusChangedEvent {
-  export type InputTuple = [itemIds: string[], status: BigNumberish];
-  export type OutputTuple = [itemIds: string[], status: bigint];
+  export type InputTuple = [itemIds: string[], status: BigNumberish]
+  export type OutputTuple = [itemIds: string[], status: bigint]
   export interface OutputObject {
-    itemIds: string[];
-    status: bigint;
+    itemIds: string[]
+    status: bigint
   }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>
+  export type Filter = TypedDeferredTopicFilter<Event>
+  export type Log = TypedEventLog<Event>
+  export type LogDescription = TypedLogDescription<Event>
 }
 
 export namespace ToxicItemCreatedEvent {
   export type InputTuple = [
     productId: BigNumberish,
     name: string,
-    weight: BigNumberish
-  ];
-  export type OutputTuple = [productId: bigint, name: string, weight: bigint];
+    weight: BigNumberish,
+  ]
+  export type OutputTuple = [productId: bigint, name: string, weight: bigint]
   export interface OutputObject {
-    productId: bigint;
-    name: string;
-    weight: bigint;
+    productId: bigint
+    name: string
+    weight: bigint
   }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>
+  export type Filter = TypedDeferredTopicFilter<Event>
+  export type Log = TypedEventLog<Event>
+  export type LogDescription = TypedLogDescription<Event>
 }
 
 export interface RecycleChain extends BaseContract {
-  connect(runner?: ContractRunner | null): RecycleChain;
-  waitForDeployment(): Promise<this>;
+  connect(runner?: ContractRunner | null): RecycleChain
+  waitForDeployment(): Promise<this>
 
-  interface: RecycleChainInterface;
+  interface: RecycleChainInterface
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
-  ): Promise<Array<TypedEventLog<TCEvent>>>;
+    toBlock?: string | number | undefined,
+  ): Promise<Array<TypedEventLog<TCEvent>>>
   queryFilter<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
-  ): Promise<Array<TypedEventLog<TCEvent>>>;
+    toBlock?: string | number | undefined,
+  ): Promise<Array<TypedEventLog<TCEvent>>>
 
   on<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>
-  ): Promise<this>;
+    listener: TypedListener<TCEvent>,
+  ): Promise<this>
   on<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>
-  ): Promise<this>;
+    listener: TypedListener<TCEvent>,
+  ): Promise<this>
 
   once<TCEvent extends TypedContractEvent>(
     event: TCEvent,
-    listener: TypedListener<TCEvent>
-  ): Promise<this>;
+    listener: TypedListener<TCEvent>,
+  ): Promise<this>
   once<TCEvent extends TypedContractEvent>(
     filter: TypedDeferredTopicFilter<TCEvent>,
-    listener: TypedListener<TCEvent>
-  ): Promise<this>;
+    listener: TypedListener<TCEvent>,
+  ): Promise<this>
 
   listeners<TCEvent extends TypedContractEvent>(
-    event: TCEvent
-  ): Promise<Array<TypedListener<TCEvent>>>;
-  listeners(eventName?: string): Promise<Array<Listener>>;
+    event: TCEvent,
+  ): Promise<Array<TypedListener<TCEvent>>>
+  listeners(eventName?: string): Promise<Array<Listener>>
   removeAllListeners<TCEvent extends TypedContractEvent>(
-    event?: TCEvent
-  ): Promise<this>;
+    event?: TCEvent,
+  ): Promise<this>
 
   addProduct: TypedContractMethod<
     [_name: string, toxicNames: string[], toxicWeights: BigNumberish[]],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
 
   addProductItems: TypedContractMethod<
     [_productId: BigNumberish, _quantity: BigNumberish],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
 
   inventory: TypedContractMethod<
     [arg0: AddressLike, arg1: BigNumberish],
     [string],
-    "view"
-  >;
+    'view'
+  >
 
   manufacturers: TypedContractMethod<
     [arg0: AddressLike],
     [
       [string, string, string] & {
-        name: string;
-        location: string;
-        contact: string;
-      }
+        name: string
+        location: string
+        contact: string
+      },
     ],
-    "view"
-  >;
+    'view'
+  >
 
-  owner: TypedContractMethod<[], [string], "view">;
+  owner: TypedContractMethod<[], [string], 'view'>
 
-  productCounter: TypedContractMethod<[], [bigint], "view">;
+  productCounter: TypedContractMethod<[], [bigint], 'view'>
 
   productItems: TypedContractMethod<
     [arg0: string],
     [
       [string, bigint, bigint] & {
-        id: string;
-        productId: bigint;
-        status: bigint;
-      }
+        id: string
+        productId: bigint
+        status: bigint
+      },
     ],
-    "view"
-  >;
+    'view'
+  >
 
   products: TypedContractMethod<
     [arg0: BigNumberish],
     [
       [bigint, string, bigint, string] & {
-        id: bigint;
-        name: string;
-        quantity: bigint;
-        manufacturer: string;
-      }
+        id: bigint
+        name: string
+        quantity: bigint
+        manufacturer: string
+      },
     ],
-    "view"
-  >;
+    'view'
+  >
 
   recycleProductItems: TypedContractMethod<
     [itemIds: string[]],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
 
   registerManufacturer: TypedContractMethod<
     [_name: string, _location: string, _contact: string],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
 
   returnProductItems: TypedContractMethod<
     [itemIds: string[]],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
 
   sellProductItems: TypedContractMethod<
     [itemIds: string[]],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
 
   getFunction<T extends ContractMethod = ContractMethod>(
-    key: string | FunctionFragment
-  ): T;
+    key: string | FunctionFragment,
+  ): T
 
   getFunction(
-    nameOrSignature: "addProduct"
+    nameOrSignature: 'addProduct',
   ): TypedContractMethod<
     [_name: string, toxicNames: string[], toxicWeights: BigNumberish[]],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
   getFunction(
-    nameOrSignature: "addProductItems"
+    nameOrSignature: 'addProductItems',
   ): TypedContractMethod<
     [_productId: BigNumberish, _quantity: BigNumberish],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
   getFunction(
-    nameOrSignature: "inventory"
+    nameOrSignature: 'inventory',
   ): TypedContractMethod<
     [arg0: AddressLike, arg1: BigNumberish],
     [string],
-    "view"
-  >;
-  getFunction(
-    nameOrSignature: "manufacturers"
-  ): TypedContractMethod<
+    'view'
+  >
+  getFunction(nameOrSignature: 'manufacturers'): TypedContractMethod<
     [arg0: AddressLike],
     [
       [string, string, string] & {
-        name: string;
-        location: string;
-        contact: string;
-      }
+        name: string
+        location: string
+        contact: string
+      },
     ],
-    "view"
-  >;
+    'view'
+  >
   getFunction(
-    nameOrSignature: "owner"
-  ): TypedContractMethod<[], [string], "view">;
+    nameOrSignature: 'owner',
+  ): TypedContractMethod<[], [string], 'view'>
   getFunction(
-    nameOrSignature: "productCounter"
-  ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "productItems"
-  ): TypedContractMethod<
+    nameOrSignature: 'productCounter',
+  ): TypedContractMethod<[], [bigint], 'view'>
+  getFunction(nameOrSignature: 'productItems'): TypedContractMethod<
     [arg0: string],
     [
       [string, bigint, bigint] & {
-        id: string;
-        productId: bigint;
-        status: bigint;
-      }
+        id: string
+        productId: bigint
+        status: bigint
+      },
     ],
-    "view"
-  >;
-  getFunction(
-    nameOrSignature: "products"
-  ): TypedContractMethod<
+    'view'
+  >
+  getFunction(nameOrSignature: 'products'): TypedContractMethod<
     [arg0: BigNumberish],
     [
       [bigint, string, bigint, string] & {
-        id: bigint;
-        name: string;
-        quantity: bigint;
-        manufacturer: string;
-      }
+        id: bigint
+        name: string
+        quantity: bigint
+        manufacturer: string
+      },
     ],
-    "view"
-  >;
+    'view'
+  >
   getFunction(
-    nameOrSignature: "recycleProductItems"
-  ): TypedContractMethod<[itemIds: string[]], [void], "nonpayable">;
+    nameOrSignature: 'recycleProductItems',
+  ): TypedContractMethod<[itemIds: string[]], [void], 'nonpayable'>
   getFunction(
-    nameOrSignature: "registerManufacturer"
+    nameOrSignature: 'registerManufacturer',
   ): TypedContractMethod<
     [_name: string, _location: string, _contact: string],
     [void],
-    "nonpayable"
-  >;
+    'nonpayable'
+  >
   getFunction(
-    nameOrSignature: "returnProductItems"
-  ): TypedContractMethod<[itemIds: string[]], [void], "nonpayable">;
+    nameOrSignature: 'returnProductItems',
+  ): TypedContractMethod<[itemIds: string[]], [void], 'nonpayable'>
   getFunction(
-    nameOrSignature: "sellProductItems"
-  ): TypedContractMethod<[itemIds: string[]], [void], "nonpayable">;
+    nameOrSignature: 'sellProductItems',
+  ): TypedContractMethod<[itemIds: string[]], [void], 'nonpayable'>
 
   getEvent(
-    key: "ManufacturerRegistered"
+    key: 'ManufacturerRegistered',
   ): TypedContractEvent<
     ManufacturerRegisteredEvent.InputTuple,
     ManufacturerRegisteredEvent.OutputTuple,
     ManufacturerRegisteredEvent.OutputObject
-  >;
+  >
   getEvent(
-    key: "ProductCreated"
+    key: 'ProductCreated',
   ): TypedContractEvent<
     ProductCreatedEvent.InputTuple,
     ProductCreatedEvent.OutputTuple,
     ProductCreatedEvent.OutputObject
-  >;
+  >
   getEvent(
-    key: "ProductItemsAdded"
+    key: 'ProductItemsAdded',
   ): TypedContractEvent<
     ProductItemsAddedEvent.InputTuple,
     ProductItemsAddedEvent.OutputTuple,
     ProductItemsAddedEvent.OutputObject
-  >;
+  >
   getEvent(
-    key: "ProductItemsStatusChanged"
+    key: 'ProductItemsStatusChanged',
   ): TypedContractEvent<
     ProductItemsStatusChangedEvent.InputTuple,
     ProductItemsStatusChangedEvent.OutputTuple,
     ProductItemsStatusChangedEvent.OutputObject
-  >;
+  >
   getEvent(
-    key: "ToxicItemCreated"
+    key: 'ToxicItemCreated',
   ): TypedContractEvent<
     ToxicItemCreatedEvent.InputTuple,
     ToxicItemCreatedEvent.OutputTuple,
     ToxicItemCreatedEvent.OutputObject
-  >;
+  >
 
   filters: {
-    "ManufacturerRegistered(address,string,string,string)": TypedContractEvent<
+    'ManufacturerRegistered(address,string,string,string)': TypedContractEvent<
       ManufacturerRegisteredEvent.InputTuple,
       ManufacturerRegisteredEvent.OutputTuple,
       ManufacturerRegisteredEvent.OutputObject
-    >;
+    >
     ManufacturerRegistered: TypedContractEvent<
       ManufacturerRegisteredEvent.InputTuple,
       ManufacturerRegisteredEvent.OutputTuple,
       ManufacturerRegisteredEvent.OutputObject
-    >;
+    >
 
-    "ProductCreated(uint256,string,address)": TypedContractEvent<
+    'ProductCreated(uint256,string,address)': TypedContractEvent<
       ProductCreatedEvent.InputTuple,
       ProductCreatedEvent.OutputTuple,
       ProductCreatedEvent.OutputObject
-    >;
+    >
     ProductCreated: TypedContractEvent<
       ProductCreatedEvent.InputTuple,
       ProductCreatedEvent.OutputTuple,
       ProductCreatedEvent.OutputObject
-    >;
+    >
 
-    "ProductItemsAdded(string[],uint256)": TypedContractEvent<
+    'ProductItemsAdded(string[],uint256)': TypedContractEvent<
       ProductItemsAddedEvent.InputTuple,
       ProductItemsAddedEvent.OutputTuple,
       ProductItemsAddedEvent.OutputObject
-    >;
+    >
     ProductItemsAdded: TypedContractEvent<
       ProductItemsAddedEvent.InputTuple,
       ProductItemsAddedEvent.OutputTuple,
       ProductItemsAddedEvent.OutputObject
-    >;
+    >
 
-    "ProductItemsStatusChanged(string[],uint8)": TypedContractEvent<
+    'ProductItemsStatusChanged(string[],uint8)': TypedContractEvent<
       ProductItemsStatusChangedEvent.InputTuple,
       ProductItemsStatusChangedEvent.OutputTuple,
       ProductItemsStatusChangedEvent.OutputObject
-    >;
+    >
     ProductItemsStatusChanged: TypedContractEvent<
       ProductItemsStatusChangedEvent.InputTuple,
       ProductItemsStatusChangedEvent.OutputTuple,
       ProductItemsStatusChangedEvent.OutputObject
-    >;
+    >
 
-    "ToxicItemCreated(uint256,string,uint256)": TypedContractEvent<
+    'ToxicItemCreated(uint256,string,uint256)': TypedContractEvent<
       ToxicItemCreatedEvent.InputTuple,
       ToxicItemCreatedEvent.OutputTuple,
       ToxicItemCreatedEvent.OutputObject
-    >;
+    >
     ToxicItemCreated: TypedContractEvent<
       ToxicItemCreatedEvent.InputTuple,
       ToxicItemCreatedEvent.OutputTuple,
       ToxicItemCreatedEvent.OutputObject
-    >;
-  };
+    >
+  }
 }

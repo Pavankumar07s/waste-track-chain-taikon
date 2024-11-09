@@ -15,8 +15,11 @@ export default function Home() {
   // Event handlers to manage the dragging
   const onMouseDown = (e: { clientX: number; clientY: number }) => {
     draggingRef.current = true
-    initialPositionRef.current = { x: e.clientX - position.x, y: e.clientY - position.y }
-    document.body.style.cursor = "grabbing" // Change cursor to indicate dragging
+    initialPositionRef.current = {
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
+    }
+    document.body.style.cursor = 'grabbing' // Change cursor to indicate dragging
   }
 
   const onMouseMove = (e: { clientX: number; clientY: number }) => {
@@ -31,7 +34,7 @@ export default function Home() {
 
   const onMouseUp = () => {
     draggingRef.current = false
-    document.body.style.cursor = "default" // Reset cursor when dragging stops
+    document.body.style.cursor = 'default' // Reset cursor when dragging stops
   }
 
   // Clean up mousemove and mouseup events when the component unmounts or on mouseup
@@ -54,7 +57,7 @@ export default function Home() {
 
       <div className="relative z-10 max-w-3xl p-6 md:p-12 text-white text-center md:text-left">
         <Logo />
-        
+
         {/* Title with animated gradient */}
         <h1 className="font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight mb-4">
           Where is our{' '}
@@ -63,13 +66,19 @@ export default function Home() {
           </span>{' '}
           Let’s find out...
         </h1>
-        
+
         {/* Button Links */}
         <div className="flex justify-center md:justify-start gap-4 mt-8">
-          <Link href="/manufacturers" className="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-md shadow-lg transition-transform transform hover:scale-105">
+          <Link
+            href="/manufacturers"
+            className="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-3 rounded-md shadow-lg transition-transform transform hover:scale-105"
+          >
             Manufacturers
           </Link>
-          <Link href="/products" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md shadow-lg transition-transform transform hover:scale-105">
+          <Link
+            href="/products"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-md shadow-lg transition-transform transform hover:scale-105"
+          >
             Products
           </Link>
         </div>
