@@ -25,7 +25,7 @@ Clone the repository to your local machine using Git.
 
 ```bash
 git clone
-cd recycle-chain-workshop
+cd waste-track-chain
 ```
 
 ### 2. Install Dependencies
