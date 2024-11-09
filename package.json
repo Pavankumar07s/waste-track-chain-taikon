@@ -1,0 +1,32 @@
+{
+  "name": "recycle-chain",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "libs/*"
+    ],
+    "nohoist": [
+      "**/@nestjs",
+      "**/@nestjs/**"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2",
+    "nx": "19.2.3",
+    "husky": "^8.0.0"
+  },
+  "scripts": {
+    "format": "prettier  \"{apps,libs,standalone}/**/*.{ts,tsx,js,json}\" --ignore-path .gitignore",
+    "format:check": "yarn format --check",
+    "format:write": "yarn format --write",
+    "tsc": "yarn nx run-many -t tsc",
+    "lint": "yarn nx run-many -t lint",
+    "validate": "yarn format:write && yarn lint && yarn tsc",
+    "prepare": "husky install",
+    "cloc": "npx cloc --exclude-dir=node_modules,dist,build,yarn.lock,package.json,generated.tsx,.next,.nx,.expo,standalone,package-lock.json ."
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
