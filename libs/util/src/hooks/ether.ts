@@ -122,14 +122,14 @@ export const useAccount = () => {
         method: 'wallet_addEthereumChain',
         params: [
           {
-            chainId: '167009', 
+            chainId: '167009',
             nativeCurrency: {
               name: 'Taiko Helka L2',
               symbol: 'ETH',
               decimals: 18,
             },
-            blockExplorerUrls: ['https://helka.taikoscan.network'], 
-            rpcUrls: ['https://rpc.hekla.taiko.xyz'], 
+            blockExplorerUrls: ['https://helka.taikoscan.network'],
+            rpcUrls: ['https://rpc.hekla.taiko.xyz'],
           },
         ],
       })
