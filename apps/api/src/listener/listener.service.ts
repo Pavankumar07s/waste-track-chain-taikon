@@ -31,7 +31,7 @@ export class ListenerService implements OnModuleInit, OnModuleDestroy {
   }
 
   initializeWebSocketProvider() {
-    const infuraWssUrl = `wss://polygon-amoy.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`
+    const infuraWssUrl = `wss://ws.hekla.taiko.xyz`
     this.provider = new ethers.WebSocketProvider(infuraWssUrl)
 
     this.contract = RecycleChain__factory.connect(
