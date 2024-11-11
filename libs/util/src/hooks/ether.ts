@@ -89,7 +89,6 @@
 //   return { account, balance, isOwner, contract }
 // }
 
-
 import { useEffect, useState } from 'react'
 import {
   RecycleChain,
@@ -123,19 +122,22 @@ export const useAccount = () => {
         method: 'wallet_addEthereumChain',
         params: [
           {
-            chainId: '0x27d9', // Update this to the correct chainId for Taiko Helka Testnet
+            chainId: '167009', 
             nativeCurrency: {
-              name: 'Taiko Helka',
-              symbol: 'TKETH', // Replace with the correct symbol
+              name: 'Taiko Helka L2',
+              symbol: 'ETH',
               decimals: 18,
             },
-            blockExplorerUrls: ['https://helka.taiko.xyz/explorer'], // Replace with the correct explorer URL
-            rpcUrls: ['https://rpc.helka.taiko.xyz'], // Replace with the correct RPC URL
+            blockExplorerUrls: ['https://helka.taikoscan.network'], 
+            rpcUrls: ['https://rpc.hekla.taiko.xyz'], 
           },
         ],
       })
     } catch (error) {
-      console.error('User denied account access or failed to add network', error)
+      console.error(
+        'User denied account access or failed to add network',
+        error,
+      )
     }
   }
 
